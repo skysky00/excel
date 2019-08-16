@@ -1,20 +1,50 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="grid-container">
+  <div class="header">
+  </div>
+  <div class="menu-left">
+    <button (click)="savePosition()">Save Position</button>
+    <ul>
+      <li>
+        <a href="#">
+          <i (click)="selectRoom(-1)">Add Room</i>
+        </a>
+      </li>
+      <ul>
+        <li *ngFor="let room of rooms; let i = index">
+          <a href="#">
+            <i (click)="selectRoom(i)">Room {{ i }}</i>
+          </a>
+        </li>
+      </ul>
+      <li>
+        <a>
+          <i (click)="selectAccom()">Accom</i>
+        </a>
+      </li>
+    </ul>
+    <button (click)="getValues()">Get Values Object</button>
+  </div>
+  <div class="main">
+    <ul class="nav nav-pills">
+      <li class="nav-item" *ngFor="let sheet of sheetNames; let i = index">
+        <a [ngClass]="i === indexActiveSheet ? 'nav-link active' : 'nav-link'">
+          <i (click)="loadSheet(i)">{{ sheet }}</i>
+        </a>
+      </li>
+    </ul>
+    <ag-grid-angular #agGrid style="width: auto; height: 500px;" class="ag-theme-balham" [rowData]="rowData"
+      [columnDefs]="columnDefs">
+    </ag-grid-angular>
+  </div>
+  <div class="menu-right">
+    <div *ngIf="currentObj != null">
+      <div *ngFor="let prop of getProperties()">
+        <input type="radio" [value]="prop" name="1" [(ngModel)]="selectedPropertie"> {{ prop }} :
+        <div>{{ currentObj[prop]}}</div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <input type="file" (change)="uploadedFile($event)" placeholder="Upload file" accept=".xlsx">
+  </footer>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-

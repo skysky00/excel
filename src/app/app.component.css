@@ -1,0 +1,35 @@
+html, body, .grid-container { height: 100%; margin: 0; }
+.grid-container * { 
+    border: 3px;
+    position: relative;
+   }
+   
+   .grid-container *:after { 
+    position: absolute;
+    top: 0;
+    left: 0;
+   }
+.grid-container {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "header header header header header header header"
+    "menu-left main main main main main menu-right"
+    "menu-left main main main main main menu-right"
+    "menu-left main main main main main menu-right"
+    "menu-left main main main main main menu-right"
+    "menu-left footer footer footer footer footer menu-right";
+  }
+  
+  .header { grid-area: header; padding: 5px}
+  
+  .menu-left { grid-area: menu-left; padding: 5px;}
+  
+  .menu-right { grid-area: menu-right; padding: 5px;}
+  
+  .footer { grid-area: footer; padding: 5px;}
+  
+  .main { grid-area: main; padding: 5px;}
+  
+  
+  
