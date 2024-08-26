@@ -22,7 +22,7 @@
     "@angular/router": "~7.0.0",
     "@ng-bootstrap/ng-bootstrap": "^5.1.0",
     "ag-grid-angular": "^21.1.0",
-    "ag-grid-community": "^21.1.1",
+    "ag-grid-community": "^31.3.4",
     "core-js": "^2.5.4",
     "file-saver": "^2.0.2",
     "rxjs": "^6.3.3",
